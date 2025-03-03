@@ -1,0 +1,25 @@
+name: SonarCloud Analysis
+
+on:
+  push:
+    branches:
+      - main  # Adjust to your default branch (e.g., master, develop)
+  pull_request:
+    branches:
+      - main  # Adjust to your default branch
+    types: [opened, synchronize, reopened]
+
+jobs:
+  sonarcloud:
+    name: SonarCloud Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Disables shallow clone for better analysis accuracy
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarqube-scan-action@v2  # Recommended action as of March 2025
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Provided by GitHub automatically
