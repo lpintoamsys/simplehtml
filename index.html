@@ -26,10 +26,20 @@
     </style>
 </head>
 <body>
-    <form action="login.php" method="post">
-        <input type="text" name="username" placeholder="Username">
-        <input type="password" name="password" placeholder="Password">
-        <button type="submit">Login</button>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <span class="error"></span>
+    
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <span class="error"></span>
+    
+        <label for="message">Message:</label>
+        <textarea id="message" name="message"></textarea>
+        <span class="error"></span>
+    
+        <button type="submit">Submit</button>
     </form>
     
 </body>
