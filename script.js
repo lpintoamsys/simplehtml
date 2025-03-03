@@ -39,13 +39,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function showError(input, message) {
         const errorElement = input.nextElementSibling;
-        if (errorElement && errorElement.classList.contains('error')) {
+        if (errorElement?.classList.contains('error')) {
             errorElement.textContent = message;
         }
     }
 
     function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         return re.test(email);
     }
 });
